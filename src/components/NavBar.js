@@ -1,8 +1,18 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { RiBankLine } from 'react-icons/ri' // Logo Página Web
+import { AiOutlineBars } from 'react-icons/ai'; // Logo Menú (Hamburguesa)
+import { VscClose } from 'react-icons/vsc'; // Logo Menú (X)
 
-class NavBar extends Component {
+function NavBar() {
 
-    render() {
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => {
+        
+        setClick(!click);
+    
+    };
 
 
         return(
@@ -10,15 +20,29 @@ class NavBar extends Component {
             <div className = "navbar">
                 <div className = "navbar-container container">
 
-                    <Link to = '/' className = "navbar-logo">Secure Bank</Link>
-                    <div className = "menu-icon"></div>
+                    <Link to = '/' className = "navbar-logo"><RiBankLine className = "navbar-icon" />Secure Bank</Link>
+                    <div className = "menu-icon" onClick = {handleClick}>
+                        {click ? <AiOutlineBars /> : <VscClose />}
+                    </div>
+
+                    <ul className = {click ? 'nav-menu active' : 'nav-menu'} >
+
+                        <li className = "nav-item">
+                            <Link to = '/' className = "nav-links">Inicio</Link>
+                        </li>
+                        <li className = "nav-item">
+                            <Link to = '/servicios' className = "nav-links">Servicios</Link>
+                        </li>
+                        <li className = "nav-item">
+                            <Link to = '/productos' className = "nav-links">Productos</Link>
+                        </li>
+
+                    </ul>
 
                 </div>
             </div>
 
         );
-
-    }
 
 }
 
