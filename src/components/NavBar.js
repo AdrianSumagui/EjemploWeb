@@ -21,6 +21,7 @@ function NavBar() {
                 <div className = "navbar-container container">
 
                     <Link to = '/' className = "navbar-logo"><RiBankLine className = "navbar-icon" />Secure Bank</Link>
+
                     <div className = "menu-icon" onClick = {handleClick}>
                         {click ? <AiOutlineBars /> : <VscClose />}
                     </div>
@@ -30,11 +31,29 @@ function NavBar() {
                         <li className = "nav-item">
                             <Link to = '/' className = "nav-links">Inicio</Link>
                         </li>
+
                         <li className = "nav-item">
                             <Link to = '/servicios' className = "nav-links">Servicios</Link>
                         </li>
+
                         <li className = "nav-item">
                             <Link to = '/productos' className = "nav-links">Productos</Link>
+                        </li>
+
+                        <li className = "nav-btn">
+                            {button ? (
+
+                                <Link to = '/sign-up' className = "btn-link">
+                                    <Button buttonStyle = 'btn--outline'>Registrarse</Button>
+                                </Link>
+
+                            ) : (
+
+                                <Link to = '/sign-up' className = "btn-link">
+                                    <Button buttonStyle = 'btn--outline' buttonSize = "btn--mobile">Registrarse</Button>
+                                </Link>
+
+                            )}
                         </li>
 
                     </ul>
