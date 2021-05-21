@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RiBankLine } from 'react-icons/ri' // Logo Página Web
 import { AiOutlineBars } from 'react-icons/ai'; // Logo Menú (Hamburguesa)
 import { VscClose } from 'react-icons/vsc'; // Logo Menú (X)
 import { Button } from './Button';
+import './NavBar.css';
+import { IconContext } from 'react-icons/lib'
 
 
 function NavBar() {
@@ -15,13 +17,13 @@ function NavBar() {
 
     const handleClick = () => {
         
-        setClick(!click)
+        setClick(!click);
     
     };
 
     const closeMobileMenu = () => {
 
-        setClick(false)
+        setClick(false);
 
     }
 
@@ -29,55 +31,63 @@ function NavBar() {
 
         if(window.innerWidth <= 960) {
 
-            setButton(false)
+            setButton(false);
 
         } else {
 
-            setButton(true)
+            setButton(true);
 
         }
 
     }
+
+    useEffect(() => {
+
+        showButton();
+
+    }, []);
 
     window.addEventListener('resize', showButton);
 
 
         return(
             
+        <IconContext.Provider value = {{ color: '#fff' }}>
+
             <div className = "navbar">
                 <div className = "navbar-container container">
 
-                    <Link to = '/' className = "navbar-logo"><RiBankLine className = "navbar-icon" />Secure Bank</Link>
+                    <Link to = '/' className = "navbar-logo" onClick = {closeMobileMenu}><RiBankLine className = "navbar-icon" />Secure Bank</Link>
 
                     <div className = "menu-icon" onClick = {handleClick}>
-                        {click ? <AiOutlineBars /> : <VscClose />}
+                        {click ? <VscClose /> : <AiOutlineBars />}
                     </div>
 
                     <ul className = {click ? 'nav-menu active' : 'nav-menu'} >
 
                         <li className = "nav-item">
-                            <Link to = '/' className = "nav-links">Inicio</Link>
+                            <Link to = '/' className = "nav-links" onClick = {closeMobileMenu}>Inicio</Link>
                         </li>
 
                         <li className = "nav-item">
-                            <Link to = '/servicios' className = "nav-links">Servicios</Link>
+                            <Link to = '/servicios' className = "nav-links" onClick = {closeMobileMenu}>Servicios</Link>
                         </li>
 
                         <li className = "nav-item">
-                            <Link to = '/productos' className = "nav-links">Productos</Link>
+                            <Link to = '/productos' className = "nav-links" onClick = {closeMobileMenu}>Productos</Link>
                         </li>
 
                         <li className = "nav-btn">
                             {button ? (
 
-                                <Link to = '/sign-up' className = "btn-link">
+                                <Link to = '/registrarse' className = "btn-link">
                                     <Button buttonStyle = 'btn--outline'>Registrarse</Button>
                                 </Link>
 
                             ) : (
 
-                                <Link to = '/sign-up' className = "btn-link">
-                                    <Button buttonStyle = 'btn--outline' buttonSize = "btn--mobile">Registrarse</Button>
+                                <Link to = '/registrarse' className = "btn-link">
+                                    <Button buttonStyle = 'btn--outline' buttonSize = "btn--mobile"  onClick = {closeMobileMenu}>Registrarse</Button>
                                 </Link>
 
                             )}
@@ -87,6 +97,10 @@ function NavBar() {
 
                 </div>
             </div>
+            
+            
+
+        </IconContext.Provider>
 
         );
 
