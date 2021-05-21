@@ -3,17 +3,43 @@ import { Link } from 'react-router-dom';
 import { RiBankLine } from 'react-icons/ri' // Logo Página Web
 import { AiOutlineBars } from 'react-icons/ai'; // Logo Menú (Hamburguesa)
 import { VscClose } from 'react-icons/vsc'; // Logo Menú (X)
-import { Button } from '../Button'
+import { Button } from './Button';
+
 
 function NavBar() {
 
     const [click, setClick] = useState(false);
 
+    const [button, setButton] = useState(true);
+
+
     const handleClick = () => {
         
-        setClick(!click);
+        setClick(!click)
     
     };
+
+    const closeMobileMenu = () => {
+
+        setClick(false)
+
+    }
+
+    const showButton = () => {
+
+        if(window.innerWidth <= 960) {
+
+            setButton(false)
+
+        } else {
+
+            setButton(true)
+
+        }
+
+    }
+
+    window.addEventListener('resize', showButton);
 
 
         return(
