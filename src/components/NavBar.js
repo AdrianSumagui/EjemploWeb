@@ -66,28 +66,28 @@ function NavBar() {
                     <ul className = {click ? 'nav-menu active' : 'nav-menu'} >
 
                         <li className = "nav-item">
-                            <Link to = '/' className = "nav-links" onClick = {closeMobileMenu}>Inicio</Link>
+                            <Link to = '/' className = "nav-links" onClick = {closeMobileMenu}>Home</Link>
                         </li>
 
                         <li className = "nav-item">
-                            <Link to = '/servicios' className = "nav-links" onClick = {closeMobileMenu}>Servicios</Link>
+                            <Link to = '/services' className = "nav-links" onClick = {closeMobileMenu}>Services</Link>
                         </li>
 
                         <li className = "nav-item">
-                            <Link to = '/productos' className = "nav-links" onClick = {closeMobileMenu}>Productos</Link>
+                            <Link to = '/products' className = "nav-links" onClick = {closeMobileMenu}>Products</Link>
                         </li>
 
                         <li className = "nav-btn">
                             {button ? (
 
-                                <Link to = '/registrarse' className = "btn-link">
-                                    <Button buttonStyle = 'btn--outline'>Registrarse</Button>
+                                <Link to = '/sign-up' className = "btn-link">
+                                    <Button buttonStyle = 'btn--outline'>Sign Up</Button>
                                 </Link>
 
                             ) : (
 
-                                <Link to = '/registrarse' className = "btn-link">
-                                    <Button buttonStyle = 'btn--outline' buttonSize = "btn--mobile"  onClick = {closeMobileMenu}>Registrarse</Button>
+                                <Link to = '/sign-up' className = "btn-link">
+                                    <Button buttonStyle = 'btn--outline' buttonSize = "btn--mobile"  onClick = {closeMobileMenu}>Sign Up</Button>
                                 </Link>
 
                             )}
