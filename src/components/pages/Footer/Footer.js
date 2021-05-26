@@ -9,7 +9,7 @@ import {
   FaTwitter,
   FaLinkedin
 } from 'react-icons/fa';
-import { MdFingerprint } from 'react-icons/md';
+import { RiBankLine } from 'react-icons/ri' 
 
 function Footer() {
   return (
@@ -72,11 +72,11 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              <MdFingerprint className='navbar-icon' />
-              LAVISH
+              <RiBankLine className='navbar-icon' />
+              Secure Bank
             </Link>
           </div>
-          <small className='website-rights'>LAVISH © 2020</small>
+          <small className='website-rights'>Secure Bank © 2021</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'
@@ -96,9 +96,7 @@ function Footer() {
             </Link>
             <Link
               className='social-icon-link'
-              to={
-                '//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber'
-              }
+              to='/'
               target='_blank'
               aria-label='Youtube'
             >
