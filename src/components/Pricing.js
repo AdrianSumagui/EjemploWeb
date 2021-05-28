@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pricing.css';
 import { FaFire } from 'react-icons/fa';
 import { BsXDiamondFill } from 'react-icons/bs';
 import { GiCrystalize } from 'react-icons/gi';
@@ -64,7 +65,7 @@ function Pricing() {
 
                             </ul>
 
-                            <Button buttonSize = 'btn--wide' buttonColor = 'primary'>Choose Plan</Button>
+                            <Button buttonSize = 'btn--wide' buttonColor = 'blue'>Choose Plan</Button>
 
                         </div>
 
