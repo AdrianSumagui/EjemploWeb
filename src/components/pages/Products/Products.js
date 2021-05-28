@@ -4,7 +4,7 @@ import HeroSection from '../../HeroSection';
 import Pricing from '../../Pricing';
 
 
-function Services() {
+function Products() {
 
     return (
 
@@ -16,4 +16,4 @@ function Services() {
     )
 }
 
-export default Services;
+export default Products;
